@@ -1,0 +1,45 @@
+{
+  "name": "front",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "jest",
+    "build:ssr": "ng build --configuration production && ng run front:server:production",
+    "serve:ssr": "node dist/front/server/main.js",
+    "dev:ssr": "ng run front:serve-ssr",
+    "prerender": "ng run front:prerender"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.2.12",
+    "@angular/cli": "^16.2.16",
+    "@angular/common": "^16.2.12",
+    "@angular/compiler": "^16.2.12",
+    "@angular/core": "^16.2.12",
+    "@angular/forms": "^16.2.12",
+    "@angular/platform-browser": "^16.2.12",
+    "@angular/platform-browser-dynamic": "^16.2.12",
+    "@angular/platform-server": "^16.2.12",
+    "@angular/router": "^16.2.12",
+    "@nguniversal/express-engine": "^16.2.0",
+    "express": "^4.21.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "^0.13.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.6",
+    "@angular/compiler-cli": "^16.2.12",
+    "@nguniversal/builders": "^16.2.0",
+    "@schematics/angular": "^16.2.6",
+    "@types/express": "^4.17.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^18.18.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.4.2",
+    "typescript": "~5.1.6"
+  }
+}
