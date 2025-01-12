@@ -1,21 +1,23 @@
 import { Component, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
   isBrowser: boolean = false;
+  apiUrl = environment.apiUrl;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    console.log('Running in production mode:', environment.production);
+    console.log('API URL:', this.apiUrl);
+  }
 
   ngAfterViewInit() {
     console.log(this.platformId);
-    if (this.platformId == 'browser') {
+    if (this.platformId === 'browser') {
       this.isBrowser = true;
     }
   }
