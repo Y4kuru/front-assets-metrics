@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './shared/components/home/home.component';
+import { HomeComponent } from './core/home/home.component';
 
 export const serverRoutes: Route[] = [
   {

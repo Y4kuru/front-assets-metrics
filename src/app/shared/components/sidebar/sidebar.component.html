@@ -1,0 +1,13 @@
+<div class="sidebar" [ngClass]="{ collapsed: isCollapsed }">
+  <div class="sidebar-header">
+    <button class="toggle-btn" (click)="toggle()">☰</button>
+    <h2 class="brand">My Community</h2>
+  </div>
+  <ul class="nav-links">
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <!-- <li><a routerLink="/forums">Forums</a></li>
+    <li><a routerLink="/events">Events</a></li>
+    <li><a routerLink="/contact">Contact</a></li> -->
+  </ul>
+</div>

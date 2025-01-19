@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 export class AppComponent implements AfterViewInit {
   isBrowser: boolean = false;
   apiUrl = environment.apiUrl;
+  isCollapsed = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     console.log('Running in production mode:', environment.production);
@@ -20,5 +21,9 @@ export class AppComponent implements AfterViewInit {
     if (this.platformId === 'browser') {
       this.isBrowser = true;
     }
+  }
+
+  toggleSidebar() {
+    this.isCollapsed = !this.isCollapsed;
   }
 }

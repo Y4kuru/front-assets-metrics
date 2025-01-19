@@ -1,0 +1,79 @@
+// h2 {
+//   font-size: 1.5rem;
+//   color: #333;
+// }
+
+// ul {
+//   list-style: none;
+//   padding: 0;
+// }
+
+// li {
+//   padding: 10px 0;
+//   border-bottom: 1px solid #ddd;
+// }
+
+.poll-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.poll-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.poll-question {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.answer-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  text-align: left;
+}
+
+.answer-label {
+  font-size: 1rem;
+  color: #333;
+}
+
+.bar {
+  width: 70%; /* Adjust the width of the progress bar container */
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.fill {
+  height: 100%;
+  background-color: #3f51b5; /* Blue fill color */
+  transition: width 0.3s ease-in-out;
+}
+
+.percentage {
+  font-size: 1rem;
+  color: #333;
+  width: 40px;
+  text-align: right;
+}

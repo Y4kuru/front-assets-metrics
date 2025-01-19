@@ -1,0 +1,4 @@
+<section class="home-content">
+    <app-poll *ngIf="!hasVoted" (onAnswerClick)="onAnwserClicked($event)"></app-poll> <!-- Display the poll here -->
+    <app-poll-results *ngIf="hasVoted"></app-poll-results> <!-- Display poll results here -->
+</section>

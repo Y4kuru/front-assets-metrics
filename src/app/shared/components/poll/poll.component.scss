@@ -1,0 +1,91 @@
+// .poll-container {
+//   padding: 20px;
+//   border: 1px solid #ddd;
+//   border-radius: 10px;
+//   background-color: #f9f9f9;
+//   max-width: 500px;
+//   margin: 0 auto;
+
+//   h2 {
+//     font-size: 1.5rem;
+//     color: #333;
+//   }
+
+//   p {
+//     color: #666;
+//     margin-bottom: 20px;
+//   }
+
+//   label {
+//     display: block;
+//     margin-bottom: 10px;
+//     font-size: 1rem;
+//   }
+
+//   button {
+//     background-color: #4caf50;
+//     color: white;
+//     padding: 10px 20px;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+
+//     &:hover {
+//       background-color: #45a049;
+//     }
+
+//     &:disabled {
+//       background-color: #ccc;
+//     }
+//   }
+
+//   .submitted {
+//     color: green;
+//     font-weight: bold;
+//   }
+// }
+
+.poll-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.poll-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.poll-question {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.answer-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-card {
+  padding: 16px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.answer-card:hover {
+  background-color: #e0e0e0;
+}
+
+mat-card {
+  margin: 0;
+}
