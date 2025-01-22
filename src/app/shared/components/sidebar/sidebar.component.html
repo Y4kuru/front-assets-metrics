@@ -1,13 +1,40 @@
 <div class="sidebar" [ngClass]="{ collapsed: isCollapsed }">
   <div class="sidebar-header">
     <button class="toggle-btn" (click)="toggle()">☰</button>
-    <h2 class="brand">My Community</h2>
+    <h2 class="brand">Tristan Finance</h2>
   </div>
-  <ul class="nav-links">
-    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-    <!-- <li><a routerLink="/forums">Forums</a></li>
-    <li><a routerLink="/events">Events</a></li>
-    <li><a routerLink="/contact">Contact</a></li> -->
-  </ul>
+  <div class="sidebar-menu">
+    <ul class="nav-links">
+      <li>
+        <a class="link" routerLink="/home" routerLinkActive="active">
+          <span class="link--top">Accueil</span>
+          <span class="link--bottom">Accueil</span>
+          
+        </a>
+      </li>
+      <li>
+        <a class="link" routerLink="/pourquoi/investir" routerLinkActive="active">
+          <span class="link--top">Pourquoi</span>
+          <span class="link--bottom">Pourquoi</span>
+          
+        </a>
+      </li>
+      <li>
+        <a class="link" routerLink="/about" routerLinkActive="active">
+          <span class="link--top">About</span>
+          <span class="link--bottom">About</span>
+          
+        </a>
+      </li>
+      <!-- <li>
+        <a class="link" routerLink="/pourquoi/investir" routerLinkActive="active">
+          <span class="link--top">Link Split Effect</span>
+          <span class="link--bottom">Link Split Effect</span>
+        </a>
+      </li> -->
+    </ul>
+  </div>
+    <div class="sidebar-logo">
+      <img src="assets/logo/main-logo.png" alt="logo">
+    </div>
 </div>

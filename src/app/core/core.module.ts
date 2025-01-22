@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PollModule } from '../shared/components/poll/poll.module'; // Import PollModule
-import { PollResultsModule } from '../shared/components/poll-results/poll-results.module'; // Import PollResultsModule
 import { HomeModule } from './home/home.module';
+import { WhyInvestModule } from './pages/why/why-invest/why-invest.module';
+import { WhyModule } from './pages/why/why.module';
 
 @NgModule({
   declarations: [
   ],
   imports: [
     CommonModule,
-    HomeModule
+    HomeModule,
+    WhyModule,
+    WhyInvestModule
   ],
   exports: [
   ]
