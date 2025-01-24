@@ -5,6 +5,7 @@ import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './shared/components/about/about.component';
 import { WhyComponent } from './core/pages/why/why.component';
 import { WhyInvestComponent } from './core/pages/why/why-invest/why-invest.component';
+import { SupportChannelComponent } from './core/pages/support-channel/support-channel.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ export const routes: Routes = [
       { path: 'investir', component: WhyInvestComponent }
     ]
   },
+  { path: 'soutenir', component: SupportChannelComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', redirectTo: '' },
 ];

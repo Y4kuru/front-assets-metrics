@@ -1,0 +1,43 @@
+.donation-page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--tertiary-color);
+    padding: 2rem;
+}
+
+.donation-page-content {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.donation-page-title {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    flex-grow: 1;
+}
+
+.donation-content {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.paypal-button {
+  background-color: #0070ba;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.paypal-button:hover {
+  background-color: #005fa3;
+}
