@@ -6,6 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { SideBarModule } from './shared/components/sidebar/sidebar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderModule } from './shared/components/loader/loader.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SideBarModule,
     CoreModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LoaderModule
   ],
   providers: [],
   exports: [],

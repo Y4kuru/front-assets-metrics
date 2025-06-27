@@ -1,5 +1,7 @@
 import { Component, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { environment } from '../environments/environment';
+import { isPlatformBrowser } from '@angular/common';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +12,26 @@ export class AppComponent implements AfterViewInit {
   isBrowser: boolean = false;
   apiUrl = environment.apiUrl;
   isCollapsed = false;
+  isLoading = false;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    console.log('Running in production mode:', environment.production);
-    console.log('API URL:', this.apiUrl);
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.isLoading = true;
+      } else if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError
+      ) {
+        this.isLoading = false;
+      }
+    });
   }
 
   ngAfterViewInit() {
     console.log(this.platformId);
-    if (this.platformId === 'browser') {
+    if (isPlatformBrowser(this.platformId)) {
       this.isBrowser = true;
     }
   }

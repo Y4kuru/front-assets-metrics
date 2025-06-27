@@ -1,0 +1,92 @@
+<div
+  class="watchlist-container"
+  *ngIf="currentTableData && currentTableData.length > 0"
+>
+  <div class="watchlist-header">
+    <h1>Liste de Suivi</h1>
+  </div>
+
+  <div class="investment-warning">
+    ⚠️ <strong>Avertissement :</strong> Ceci ne constitue pas un conseil en
+    investissement. Les informations fournies sont à titre éducatif et
+    informatif uniquement.
+  </div>
+
+  <div>
+    <p class="watchlist-description">
+      Voici une liste d'entreprises que je suis actuellement. Les données sont
+      mises à jour régulièrement pour refléter les dernières informations
+      financières.
+    </p>
+  </div>
+  <div class="watchlist-toggle">
+    <button
+      [class.active]="currentTableData === tableDataPEA"
+      (click)="currentTableData = tableDataPEA"
+    >
+      📈 PEA (Europe)
+    </button>
+    <button
+      [class.active]="currentTableData === tableDataCTO"
+      (click)="currentTableData = tableDataCTO"
+    >
+      💼 CTO (Monde)
+    </button>
+  </div>
+
+  <div class="watchlist-table">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th (click)="sortBy('ticker')">Code<span> ⇅ </span></th>
+            <th (click)="sortBy('name')">Nom<span> ⇅ </span></th>
+            <th (click)="sortBy('market_cap')">
+              Capitalisation<span> ⇅ </span>
+            </th>
+            <th (click)="sortBy('price')">Prix<span> ⇅ </span></th>
+            <th (click)="sortBy('high_price')">Plus Haut<span> ⇅ </span></th>
+            <th (click)="sortBy('drop_from_high')">
+              Depuis le Plus Haut (1an) <span> ⇅ </span>
+            </th>
+            <th (click)="sortBy('pe')">PER<span> ⇅ </span></th>
+            <th (click)="sortBy('daily_change')">
+              Variation Journalière<span> ⇅ </span>
+            </th>
+            <th (click)="sortBy('eps')">EPS<span> ⇅ </span></th>
+            <th (click)="sortBy('sector')">Secteur<span> ⇅ </span></th>
+            <th>Perf 10 ans</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let company of currentTableData">
+            <td>{{ company.ticker }}</td>
+            <td>{{ company.name }}</td>
+            <td>{{ company.market_cap }}</td>
+            <td>{{ company.price }}</td>
+            <td>{{ company.high_price }}</td>
+            <td
+              [ngStyle]="{
+                'background-color': getDropFromHighColor(company.drop_from_high)
+              }"
+            >
+              {{ company.drop_from_high }}
+            </td>
+            <td [ngStyle]="{ 'background-color': getPERatioColor(company.pe) }">
+              {{ company.pe }}
+            </td>
+            <td>{{ company.daily_change }}</td>
+            <td [ngStyle]="{ 'background-color': getEPSColor(company.eps) }">
+              {{ company.eps }}
+            </td>
+            <td>{{ company.sector }}</td>
+            <!-- <td>{{ company.moat }}</td> -->
+            <td class="sparkline-cell">
+              <app-sparkline [data]="company.price_history"></app-sparkline>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
