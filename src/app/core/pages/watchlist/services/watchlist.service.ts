@@ -19,10 +19,23 @@ export class WatchlistService {
 
   static getEPSColor(eps: number | null): string {
     const num = Number(eps);
-    if (eps ===null || isNaN(num)) return '#EFD499';
+    if (eps === null || isNaN(num)) return '#EFD499';
 
     const min = 0;
     const max = 20;
+    const clamped = Math.max(min, Math.min(num, max));
+    const ratio = (clamped - min) / (max - min);
+
+    const hue = ratio * 120; // Red → Green
+    return `hsl(${hue}, 70%, 75%)`;
+  }
+
+  static getScoreColor(score: number | null): string {
+    const num = Number(score);
+    if (score === null || isNaN(num)) return '#EFD499';
+
+    const min = 0;
+    const max = 100;
     const clamped = Math.max(min, Math.min(num, max));
     const ratio = (clamped - min) / (max - min);
 

@@ -39,13 +39,14 @@
       <table>
         <thead>
           <tr>
-            <th (click)="sortBy('ticker')">Code<span> ⇅ </span></th>
+            <th (click)="sortBy('ticker')">Ticker<span> ⇅ </span></th>
             <th (click)="sortBy('name')">Nom<span> ⇅ </span></th>
             <th (click)="sortBy('market_cap')">
               Capitalisation<span> ⇅ </span>
             </th>
             <th (click)="sortBy('price')">Prix<span> ⇅ </span></th>
-            <th (click)="sortBy('high_price')">Plus Haut<span> ⇅ </span></th>
+            <!-- <th (click)="sortBy('high_price')">Plus Haut<span> ⇅ </span></th> -->
+            <!-- <th (click)="sortBy('fair_value')">Prix cible<span> ⇅ </span></th> -->
             <th (click)="sortBy('drop_from_high')">
               Depuis le Plus Haut (1an) <span> ⇅ </span>
             </th>
@@ -55,16 +56,21 @@
             </th>
             <th (click)="sortBy('eps')">EPS<span> ⇅ </span></th>
             <th (click)="sortBy('sector')">Secteur<span> ⇅ </span></th>
+            <th (click)="sortBy('attractiveness_score')">
+              Score<span> ⇅ </span>
+            </th>
             <th>Perf 10 ans</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let company of currentTableData">
+          <tr *ngFor="let company of currentTableData" (click)="openCompanyDetails(company)">
             <td>{{ company.ticker }}</td>
             <td>{{ company.name }}</td>
             <td>{{ company.market_cap }}</td>
             <td>{{ company.price }}</td>
-            <td>{{ company.high_price }}</td>
+            <!-- <td>{{ company.high_price }}</td> -->
+            <!-- <td>{{ company.fair_value }}</td> -->
+
             <td
               [ngStyle]="{
                 'background-color': getDropFromHighColor(company.drop_from_high)
@@ -81,6 +87,9 @@
             </td>
             <td>{{ company.sector }}</td>
             <!-- <td>{{ company.moat }}</td> -->
+            <td [ngStyle]="{ 'background-color': getScoreColor(company.attractiveness_score) }">
+              {{ company.attractiveness_score }}
+            </td>
             <td class="sparkline-cell">
               <app-sparkline [data]="company.price_history"></app-sparkline>
             </td>

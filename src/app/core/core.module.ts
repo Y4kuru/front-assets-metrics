@@ -5,6 +5,7 @@ import { WhyInvestModule } from './pages/why/why-invest/why-invest.module';
 import { WhyModule } from './pages/why/why.module';
 import { SupportChannelModule } from './pages/support-channel/support-channel.module';
 import { WatchlistModule } from './pages/watchlist/watchlist.module';
+import { CompanyDetailsModule } from './pages/company-details/company-details.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { WatchlistModule } from './pages/watchlist/watchlist.module';
     HomeModule,
     WhyModule,
     SupportChannelModule,
-    WatchlistModule
+    WatchlistModule,
+    CompanyDetailsModule
   ],
   exports: [
   ]

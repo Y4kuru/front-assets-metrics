@@ -1,4 +1,4 @@
-export interface Company {
+export interface CompanyDetails {
   ticker: string;
   name: string;
   market_cap: string;

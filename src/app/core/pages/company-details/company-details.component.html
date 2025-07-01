@@ -1,0 +1,44 @@
+<div class="company-details-container">
+
+  <div class="company-details" *ngIf="company">
+    <div class="company-header">
+      <h1>{{ company.name }} ({{ company.ticker }})</h1>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric">
+        <strong>Prix actuel :</strong> {{ company.price || "-" }}
+      </div>
+      <div class="metric">
+        <strong>Prix le plus haut :</strong> {{ company.high_price || "-" }}
+      </div>
+      <div class="metric">
+        <strong>Capitalisation :</strong> {{ company.market_cap || "-" }}
+      </div>
+      <div class="metric">
+        <strong>Variation depuis le plus haut :</strong>
+        {{ company.drop_from_high }}
+      </div>
+      <div class="metric"><strong>PER :</strong> {{ company.pe }}</div>
+      <div class="metric"><strong>EPS :</strong> {{ company.eps }}</div>
+      <div class="metric">
+        <strong>Score d'attractivité :</strong> {{ company.attractiveness_score }}
+      </div>
+      <div class="metric">
+        <strong>Valeur estimée :</strong>
+        {{ company.fair_value | currency : company.currency }}
+      </div>
+      <div class="metric">
+        <strong>Écart vs valeur estimée :</strong>
+        {{ company.fair_value_gap | number : "1.0-2" }}%
+      </div>
+      <div class="metric"><strong>Secteur :</strong> {{ company.sector }}</div>
+      <div class="metric"><strong>Moat :</strong> {{ company.moat }}</div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Historique du prix sur 10 ans</h3>
+      <app-sparkline [data]="company.price_history"></app-sparkline>
+    </div>
+  </div>
+</div>

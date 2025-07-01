@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './core/home/home.component';
-import { AboutComponent } from './shared/components/about/about.component';
-import { WhyComponent } from './core/pages/why/why.component';
-import { WhyInvestComponent } from './core/pages/why/why-invest/why-invest.component';
 import { SupportChannelComponent } from './core/pages/support-channel/support-channel.component';
 import { WatchlistComponent } from './core/pages/watchlist/watchlist.component';
-import { PickerComponent } from './core/pages/watchlist/picker/picker.component';
 import { watchlistResolver } from './core/pages/watchlist/resolver/watchlist-resolver.service';
+import { CompanyDetailsComponent } from './core/pages/company-details/company-details.component';
+import { CompanyDetailsResolver } from './core/pages/company-details/resolver/watchlist-resolver.service';
 
 export const routes: Routes = [
   { path: '', component: WatchlistComponent, resolve: {
@@ -20,6 +17,13 @@ export const routes: Routes = [
     component: WatchlistComponent,
     resolve: {
       companies: watchlistResolver
+    }
+  },
+  {
+    path: 'company/:ticker',
+    component: CompanyDetailsComponent,
+    resolve: {
+      company: CompanyDetailsResolver
     }
   },
   // { path: 'picker', component: PickerComponent },

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Company } from './watchlist.constants';
 import { WatchlistService } from './services/watchlist.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-watchlist',
@@ -16,7 +16,7 @@ export class WatchlistComponent {
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
     const companies = this.route.snapshot.data['companies'];
     if (companies) {
       this.tableDataPEA = companies.pea;
@@ -39,6 +39,18 @@ export class WatchlistComponent {
 
   getDropFromHighColor(dropStr: string): string {
     return WatchlistService.getDropFromHighColor(dropStr);
+  }
+
+  getScoreColor(score: number): string {
+    return WatchlistService.getScoreColor(score);
+  }
+
+  openCompanyDetails(company: Company) {
+    const ticker = company.ticker;
+    console.log(`Opening details for company: ${ticker}`);
+    
+    const url = `/company/${ticker}`;
+    this.router.navigate([url])
   }
 
   sortBy(column: string) {
