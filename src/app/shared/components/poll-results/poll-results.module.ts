@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PollResultsComponent } from './poll-results.component';
 import { FormsModule } from '@angular/forms';  // For ngModel binding
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -12,8 +11,8 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
-    MatCardModule
+    HttpClientModule
+    
   ],
   exports: [
     PollResultsComponent

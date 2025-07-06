@@ -1,0 +1,24 @@
+<div class="referral-container">
+  <h1>🤝 Liens de parrainages</h1>
+  <p class="intro">
+    Bénéficiez d’avantages exclusifs en utilisant mes liens de parrainage pour
+    ouvrir un compte chez mes partenaires.
+  </p>
+
+  <div class="cards-grid">
+    <div class="referral-card" *ngFor="let broker of referralLinks" (click)="redirectToAffiliate(broker.link)">
+      <div class="logo-wrapper">
+        <img [src]="broker.logo" [alt]="broker.name" />
+      </div>
+      <div class="referral-body">
+        <h2>{{ broker.name }}</h2>
+        <p class="description">{{ broker.description }}</p>
+
+        <div class="flex-spacer"></div>
+        <!-- pushes bonus and link down -->
+
+        <p class="bonus">{{ broker.bonus }}</p>
+      </div>
+    </div>
+  </div>
+</div>

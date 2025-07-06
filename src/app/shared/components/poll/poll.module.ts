@@ -4,7 +4,6 @@ import { PollComponent } from './poll.component';
 import { FormsModule } from '@angular/forms';  // For ngModel binding
 import { PollHttpService } from './services/poll-http.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -13,8 +12,7 @@ import { MatCardModule } from '@angular/material/card';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
-    MatCardModule
+    HttpClientModule
   ],
   exports: [
     PollComponent

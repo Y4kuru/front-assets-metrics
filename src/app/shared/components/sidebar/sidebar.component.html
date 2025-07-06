@@ -1,45 +1,52 @@
 <div class="sidebar" [ngClass]="{ collapsed: isCollapsed }">
   <div class="sidebar-header">
-    <button class="toggle-btn" (click)="toggle()">☰</button>
-    <h2 class="brand">Tristan Finance</h2>
+    <div class="toggle-icon-container">
+      <button class="toggle-btn" (click)="toggle()">
+        <span class="material-icons">
+          {{ isCollapsed ? 'arrow_circle_right' : 'arrow_circle_left' }}
+        </span>
+      </button>
+    </div>
+    <h2 class="brand">Assets Metrics</h2>
   </div>
   <div class="sidebar-menu">
     <ul class="nav-links">
       <li>
         <a class="link" routerLink="/watchlist" routerLinkActive="active">
           <span *ngIf="!isCollapsed" class="link--top">Watchlist</span>
-          <span *ngIf="!isCollapsed" class="link--bottom">Watchlist</span>
           <span *ngIf="isCollapsed" class="link--icon">📈</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" routerLink="/affiliate-links" routerLinkActive="active">
+          <span *ngIf="!isCollapsed" class="link--top">Parrainages</span>
+          <span *ngIf="isCollapsed" class="link--icon">🎁</span>
         </a>
       </li>
       <!-- <li>
         <a class="link" routerLink="/home" routerLinkActive="active">
           <span class="link--top">Accueil</span>
-          <span class="link--bottom">Accueil</span>
           
         </a>
       </li>
       <li>
         <a class="link" routerLink="/why/investir" routerLinkActive="active">
           <span class="link--top">Pourquoi</span>
-          <span class="link--bottom">Pourquoi</span>
         </a>
       </li> -->
       <!-- <li>
         <a class="link" routerLink="/soutenir" routerLinkActive="active">
           <span class="link--top">Soutenir la chaîne</span>
-          <span class="link--bottom">Soutenir la chaîne</span>
         </a>
       </li>
       <li>
         <a class="link" routerLink="/about" routerLinkActive="active">
           <span class="link--top">About</span>
-          <span class="link--bottom">About</span>
         </a>
       </li> -->
     </ul>
   </div>
-    <div class="sidebar-logo">
-      <img src="assets/logo/main-logo.png" alt="logo">
-    </div>
+  <div class="sidebar-logo">
+    <img src="assets/logo/main-logo.png" alt="logo" />
+  </div>
 </div>

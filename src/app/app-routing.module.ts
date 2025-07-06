@@ -5,6 +5,7 @@ import { WatchlistComponent } from './core/pages/watchlist/watchlist.component';
 import { watchlistResolver } from './core/pages/watchlist/resolver/watchlist-resolver.service';
 import { CompanyDetailsComponent } from './core/pages/company-details/company-details.component';
 import { CompanyDetailsResolver } from './core/pages/company-details/resolver/watchlist-resolver.service';
+import { AffiliateLinksComponent } from './core/pages/affiliate-links/affiliate-links.component';
 
 export const routes: Routes = [
   { path: '', component: WatchlistComponent, resolve: {
@@ -25,6 +26,10 @@ export const routes: Routes = [
     resolve: {
       company: CompanyDetailsResolver
     }
+  },
+  {
+    path: 'affiliate-links',
+    component: AffiliateLinksComponent
   },
   // { path: 'picker', component: PickerComponent },
   // {

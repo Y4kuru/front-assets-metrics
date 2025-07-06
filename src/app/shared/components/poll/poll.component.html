@@ -11,18 +11,18 @@
   <p>Loading poll data...</p>
 </div> -->
 <div class="poll-container">
-  <mat-card class="poll-card">
+  <div class="poll-card">
     <h2 class="poll-question">What is your favorite color?</h2>
     <div class="answer-cards">
-      <mat-card class="answer-card" (click)="submitVote('Red')">
-        <mat-card-content>Red</mat-card-content>
-      </mat-card>
-      <mat-card class="answer-card" (click)="submitVote('Blue')">
-        <mat-card-content>Blue</mat-card-content>
-      </mat-card>
-      <mat-card class="answer-card" (click)="submitVote('Green')">
-        <mat-card-content>Green</mat-card-content>
-      </mat-card>
+      <div class="answer-card" (click)="submitVote('Red')">
+        <div>Red</div>
+      </div>
+      <div class="answer-card" (click)="submitVote('Blue')">
+        <div>Blue</div>
+      </div>
+      <div class="answer-card" (click)="submitVote('Green')">
+        <div>Green</div>
+      </div>
     </div>
-  </mat-card>
+  </div>
 </div>

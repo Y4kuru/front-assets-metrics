@@ -1,15 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@use "theme/custom-theme";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-:root { 
-    --primary-color: #EFD499;
-    --secondary-color: #8C6B44;
-    --tertiary-color: #2F393D;
-    --quaternary-color: #2A2E30;
-    --quinary-color: #161D27;
-    --senary-color: #000000;
-    --white-color: #ffffff;
-    --header-height: 56px;
+:root {
+  --primary-color: #efd499;
+  --secondary-color: #8c6b44;
+  --tertiary-color: #2f393d;
+  --quaternary-color: #2a2e30;
+  --quinary-color: #161d27;
+  --senary-color: #000000;
+  --white-color: #ffffff;
+  --header-height: 56px;
 }

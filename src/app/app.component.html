@@ -1,7 +1,12 @@
 <div class="app-content">
-  <app-sidebar [isCollapsed]="isCollapsed" (toggleSidebar)="toggleSidebar()"></app-sidebar>
+  <app-sidebar
+    [isCollapsed]="isCollapsed"
+    (toggleSidebar)="toggleSidebar()"
+  ></app-sidebar>
   <div class="main-content" ngClass="{{ isCollapsed ? 'extended' : '' }}">
     <app-loader *ngIf="isLoading"></app-loader>
-    <router-outlet></router-outlet>
+    <div class="mat-typography">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

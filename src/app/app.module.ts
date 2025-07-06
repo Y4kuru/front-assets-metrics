@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { SideBarModule } from './shared/components/sidebar/sidebar.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderModule } from './shared/components/loader/loader.module';
+import { AffiliateLinksModule } from './core/pages/affiliate-links/affiliate-links.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoaderModule } from './shared/components/loader/loader.module';
     CoreModule,
     SharedModule,
     BrowserAnimationsModule,
-    LoaderModule
+    LoaderModule,
+    AffiliateLinksModule
   ],
   providers: [],
   exports: [],
