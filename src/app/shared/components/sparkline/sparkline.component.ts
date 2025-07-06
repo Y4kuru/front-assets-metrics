@@ -10,7 +10,9 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class SparklineComponent {
   @Input() data: number[] = [];
-  @Input() color: string = '#EFD499'; // Default highlight color
+  @Input() dates?: string[]; // optional dates input
+  @Input() color: string = '#EFD499';
+
   isBrowser = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
@@ -26,7 +28,14 @@ export class SparklineComponent {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
-      legend: { display: false }
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title: (context) => {
+            return this.dates?.[context[0].dataIndex] || `Point ${context[0].dataIndex}`;
+          }
+        }
+      }
     },
     scales: {
       x: { display: false },
@@ -34,8 +43,8 @@ export class SparklineComponent {
     },
     elements: {
       line: {
-        borderWidth: 2.5,      // Thicker for better visibility
-        tension: 0.3           // Smoother curve
+        borderWidth: 2.5,
+        tension: 0.3
       },
       point: {
         radius: 0
@@ -44,9 +53,14 @@ export class SparklineComponent {
   };
 
   ngOnChanges() {
-    if (!this.isBrowser) return;   
+    if (!this.isBrowser) return;
+
+    const labels = this.dates && this.dates.length === this.data.length
+      ? this.dates
+      : this.data.map((_, i) => i.toString());
+
     this.lineChartData = {
-      labels: this.data.map((_, i) => i.toString()),
+      labels,
       datasets: [
         {
           data: this.data,

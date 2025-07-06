@@ -13,6 +13,8 @@ export class CompanyDetailsComponent {
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe((data) => {
       this.company = data['company'];
+      console.log('Company data:', this.company);
+      
     });
   }
 

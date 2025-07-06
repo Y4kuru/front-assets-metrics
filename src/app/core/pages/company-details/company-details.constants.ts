@@ -15,4 +15,5 @@ export interface CompanyDetails {
   attractiveness_score: number;
   moat: string;
   price_history: number[];
+  price_dates: string[];
 }
