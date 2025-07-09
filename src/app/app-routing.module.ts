@@ -6,6 +6,9 @@ import { watchlistResolver } from './core/pages/watchlist/resolver/watchlist-res
 import { CompanyDetailsComponent } from './core/pages/company-details/company-details.component';
 import { CompanyDetailsResolver } from './core/pages/company-details/resolver/watchlist-resolver.service';
 import { AffiliateLinksComponent } from './core/pages/affiliate-links/affiliate-links.component';
+import { EducationComponent } from './core/pages/education/education.component';
+import { RealtComponent } from './core/pages/realt/realt.component';
+import { RealtResolver } from './core/pages/realt/resolver/realt-resolver.service';
 
 export const routes: Routes = [
   { path: '', component: WatchlistComponent, resolve: {
@@ -30,6 +33,24 @@ export const routes: Routes = [
   {
     path: 'affiliate-links',
     component: AffiliateLinksComponent
+  },
+  {
+    path: 'education',
+    component: EducationComponent
+    // children: [
+    //   { path: 'investir', component:  }
+    // ]
+  },
+  {
+    path: 'realt',
+    component: RealtComponent,
+    resolve: {
+      realt: RealtResolver
+    }
+    
+    // children: [
+    //   { path: 'investir', component:  }
+    // ]
   },
   // { path: 'picker', component: PickerComponent },
   // {

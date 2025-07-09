@@ -78,7 +78,7 @@
               {{ company.attractiveness_score }}
             </td>
             <td class="sparkline-cell">
-              <app-sparkline [data]="company.price_history" [dates]="company.price_dates"></app-sparkline>
+                <app-sparkline color="#161D27" [data]="company.price_history" [dates]="company.price_dates" [height]="200"></app-sparkline>
             </td>
           </tr>
         </tbody>

@@ -7,19 +7,31 @@
         </span>
       </button>
     </div>
-    <h2 class="brand">Assets Metrics</h2>
+    <h2 class="brand">Tristan Finance</h2>
   </div>
   <div class="sidebar-menu">
     <ul class="nav-links">
       <li>
+        <a class="link" routerLink="/education" routerLinkActive="active">
+          <span *ngIf="!isCollapsed" class="link--top">Éducation 🏫</span>
+          <span *ngIf="isCollapsed" class="link--icon">🏫</span>
+        </a>
+      </li>
+      <li>
         <a class="link" routerLink="/watchlist" routerLinkActive="active">
-          <span *ngIf="!isCollapsed" class="link--top">Entreprises</span>
+          <span *ngIf="!isCollapsed" class="link--top">Ma Sélection 📈</span>
           <span *ngIf="isCollapsed" class="link--icon">📈</span>
         </a>
       </li>
       <li>
+        <a class="link" routerLink="/realt" routerLinkActive="active">
+          <span *ngIf="!isCollapsed" class="link--top">Immobiliers 🏡</span>
+          <span *ngIf="isCollapsed" class="link--icon">🏡</span>
+        </a>
+      </li>
+      <li>
         <a class="link" routerLink="/affiliate-links" routerLinkActive="active">
-          <span *ngIf="!isCollapsed" class="link--top">Parrainages</span>
+          <span *ngIf="!isCollapsed" class="link--top">Parrainages 🎁</span>
           <span *ngIf="isCollapsed" class="link--icon">🎁</span>
         </a>
       </li>

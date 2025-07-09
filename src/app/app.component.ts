@@ -30,7 +30,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.platformId);
     if (isPlatformBrowser(this.platformId)) {
       this.isBrowser = true;
     }

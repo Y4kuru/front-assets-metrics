@@ -1,0 +1,14 @@
+<h1>Realt</h1>
+<div *ngIf="!realt" class="no-data">
+  <p>Aucune donnée disponible pour le moment.</p>
+</div>
+<div class="rents-graph-container" *ngIf="realt && chartOptions">
+  <app-sparkline
+    color="#161D27"
+    [data]="realt.rents"
+    [dates]="realt.dates"
+    [chartOptions]="chartOptions"
+    legend="Loyers hebdomadaire (en $)"
+    [height]="200"
+  ></app-sparkline>
+</div>

@@ -9,64 +9,37 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./sparkline.component.scss'],
 })
 export class SparklineComponent {
+  @Input() height: number = 60;
   @Input() data: number[] = [];
   @Input() dates?: string[]; // optional dates input
   @Input() color: string = '#EFD499';
+  @Input() legend: string | undefined; // optional legend input
+  @Input() chartOptions: ChartConfiguration<'line'>['options'] = undefined;
 
+  lineChartData: ChartConfiguration<'line'>['data'] | undefined = undefined; 
   isBrowser = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [],
-    datasets: [],
-  };
-
-  chartOptions: ChartConfiguration<'line'>['options'] = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          title: (context) => {
-            return this.dates?.[context[0].dataIndex] || `Point ${context[0].dataIndex}`;
-          }
-        }
-      }
-    },
-    scales: {
-      x: { display: false },
-      y: { display: false }
-    },
-    elements: {
-      line: {
-        borderWidth: 2.5,
-        tension: 0.3
-      },
-      point: {
-        radius: 0
-      }
-    }
-  };
 
   ngOnChanges() {
     if (!this.isBrowser) return;
-
-    const labels = this.dates && this.dates.length === this.data.length
-      ? this.dates
-      : this.data.map((_, i) => i.toString());
-
+    const labels =
+      this.dates && this.dates.length === this.data.length
+        ? this.dates
+        : this.data.map((_, i) => i.toString());
+    let dataset: any = {
+      data: this.data,
+      backgroundColor: this.color,
+    };
+    if (this.legend) {
+      dataset.label = this.legend;
+    }
     this.lineChartData = {
       labels,
-      datasets: [
-        {
-          data: this.data,
-          backgroundColor: this.color
-        }
-      ]
+      datasets: [dataset],
     };
   }
 }
