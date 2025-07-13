@@ -16,13 +16,12 @@ export class SparklineComponent {
   @Input() legend: string | undefined; // optional legend input
   @Input() chartOptions: ChartConfiguration<'line'>['options'] = undefined;
 
-  lineChartData: ChartConfiguration<'line'>['data'] | undefined = undefined; 
+  lineChartData: ChartConfiguration<'line'>['data'] | undefined = undefined;
   isBrowser = false;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
-
 
   ngOnChanges() {
     if (!this.isBrowser) return;
@@ -31,8 +30,14 @@ export class SparklineComponent {
         ? this.dates
         : this.data.map((_, i) => i.toString());
     let dataset: any = {
+      type: 'line', // <=== force line chart rendering
       data: this.data,
-      backgroundColor: this.color,
+      backgroundColor: 'transparent',
+      borderColor: this.color,
+      borderWidth: 2,
+      fill: false,
+      tension: 0.3,
+      pointRadius: 0,
     };
     if (this.legend) {
       dataset.label = this.legend;
