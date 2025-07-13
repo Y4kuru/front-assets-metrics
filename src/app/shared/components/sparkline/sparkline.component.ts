@@ -30,7 +30,6 @@ export class SparklineComponent {
         ? this.dates
         : this.data.map((_, i) => i.toString());
     let dataset: any = {
-      type: 'line', // <=== force line chart rendering
       data: this.data,
       backgroundColor: 'transparent',
       borderColor: this.color,

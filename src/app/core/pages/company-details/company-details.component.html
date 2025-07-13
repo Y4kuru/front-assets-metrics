@@ -1,15 +1,17 @@
 <div class="company-details-container">
-
   <div class="company-details" *ngIf="company">
     <div class="company-header">
       <h1>{{ company.name }} ({{ company.ticker }})</h1>
     </div>
+    <h2>
+      <strong>{{ company.price || "-" }}</strong> 
+    </h2>
 
-    <!-- <div class="metrics-grid">
+    <!--<div class="metrics-grid">
       <div class="metric">
         <strong>Prix actuel :</strong> {{ company.price || "-" }}
       </div>
-      <div class="metric">
+       <div class="metric">
         <strong>Prix le plus haut :</strong> {{ company.high_price || "-" }}
       </div>
       <div class="metric">
@@ -38,7 +40,12 @@
 
     <div class="chart-card">
       <h3>Historique du prix sur 10 ans</h3>
-      <app-sparkline [data]="company.price_history" [dates]="company.price_dates" [height]="600"></app-sparkline>
+      <app-sparkline
+        [data]="company.price_history"
+        [dates]="company.price_dates"
+        [height]="600"
+        [chartOptions]="chartOptions"
+      ></app-sparkline>
     </div>
   </div>
 </div>

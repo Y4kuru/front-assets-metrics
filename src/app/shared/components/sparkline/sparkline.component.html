@@ -1,6 +1,7 @@
 <canvas
   *ngIf="isBrowser"
   baseChart
+  [type]="'line'"
   [data]="lineChartData"
   [options]="chartOptions"
   [style]="'width: 100%; height: ' + height + 'px'"

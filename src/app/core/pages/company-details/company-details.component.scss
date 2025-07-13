@@ -1,3 +1,9 @@
+h2 {
+  font-size: 3rem;
+  color: var(--quinary-color);
+  margin-bottom: 0;
+}
+
 .company-details-container {
   padding: 0 2rem;
   .company-header {
@@ -42,7 +48,7 @@
     margin-bottom: 3rem;
     h3 {
       margin-bottom: 0.5rem;
-      color: var(--primary-color);
+      color: var(--quinary-color);
     }
   }
 }
