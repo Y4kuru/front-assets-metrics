@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CompanyDetails } from './company-details.constants';
+import { ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-company-details',
@@ -9,12 +10,32 @@ import { CompanyDetails } from './company-details.constants';
 })
 export class CompanyDetailsComponent {
   company: CompanyDetails | undefined;
+  chartOptions: ChartConfiguration<'line'>['options'] | undefined;
 
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe((data) => {
       this.company = data['company'];
       console.log('Company data:', this.company);
-      
+      this.chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+        },
+        scales: {
+          x: { display: false },
+          y: { display: false },
+        },
+        elements: {
+          line: {
+            borderWidth: 2.5,
+            tension: 0.3,
+          },
+          point: {
+            radius: 0,
+          },
+        },
+      };
     });
   }
 

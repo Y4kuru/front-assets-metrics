@@ -31,16 +31,6 @@ export class WatchlistComponent {
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          // tooltip: {
-          //   callbacks: {
-          //     title: (context: any) => {
-          //       return (
-          //         this.dates?.[context[0].dataIndex] ||
-          //         `Point ${context[0].dataIndex}`
-          //       );
-          //     },
-          //   },
-          // },
         },
         scales: {
           x: { display: false },

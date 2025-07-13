@@ -5,7 +5,7 @@
       <h1>{{ company.name }} ({{ company.ticker }})</h1>
     </div>
 
-    <div class="metrics-grid">
+    <!-- <div class="metrics-grid">
       <div class="metric">
         <strong>Prix actuel :</strong> {{ company.price || "-" }}
       </div>
@@ -34,11 +34,11 @@
       </div>
       <div class="metric"><strong>Secteur :</strong> {{ company.sector }}</div>
       <div class="metric"><strong>Moat :</strong> {{ company.moat }}</div>
-    </div>
+    </div> -->
 
     <div class="chart-card">
       <h3>Historique du prix sur 10 ans</h3>
-      <app-sparkline [data]="company.price_history" [dates]="company.price_dates"></app-sparkline>
+      <app-sparkline [data]="company.price_history" [dates]="company.price_dates" [height]="600"></app-sparkline>
     </div>
   </div>
 </div>
