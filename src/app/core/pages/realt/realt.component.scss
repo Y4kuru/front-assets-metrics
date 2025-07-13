@@ -1,3 +1,73 @@
+h1 {
+  font-size: 4rem;
+  color: var(--quinary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .realt-logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+}
+
+.realt-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.tab-buttons-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:not(.active) {
+      &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  button.active {
+    background-color: var(--primary-color);
+    color: white;
+  }
+}
+
 .rents-graph-container {
-  // width: 50%;
+  width: 50%;
+}
+
+.portfolio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  .portfolio-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease-in-out;
+  }
 }

@@ -6,18 +6,18 @@
     <h1>Liste de Suivi</h1>
   </div>
 
-  <div class="watchlist-toggle">
+  <div class="tab-buttons">
     <button
-      [class.active]="currentTableData === tableDataPEA"
-      (click)="currentTableData = tableDataPEA"
+      [class.active]="activeTab === 'PEA'"
+      (click)="activeTab = 'PEA'; currentTableData = tableDataPEA"
     >
-      📈 PEA (Europe)
+      📈 PEA
     </button>
     <button
-      [class.active]="currentTableData === tableDataCTO"
-      (click)="currentTableData = tableDataCTO"
+      [class.active]="activeTab === 'CTO'"
+      (click)="activeTab = 'CTO'; currentTableData = tableDataCTO"
     >
-      💼 CTO (Monde)
+      💼 CTO
     </button>
   </div>
 
@@ -46,11 +46,14 @@
             <th (click)="sortBy('attractiveness_score')">
               Score<span> ⇅ </span>
             </th>
-            <th>Perf 10 ans</th>
+            <!-- <th>Perf 10 ans</th> -->
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let company of currentTableData" (click)="openCompanyDetails(company)">
+          <tr
+            *ngFor="let company of currentTableData"
+            (click)="openCompanyDetails(company)"
+          >
             <td>{{ company.ticker }}</td>
             <td>{{ company.name }}</td>
             <td>{{ company.market_cap }}</td>
@@ -74,18 +77,27 @@
             </td>
             <td>{{ company.sector }}</td>
             <!-- <td>{{ company.moat }}</td> -->
-            <td [ngStyle]="{ 'background-color': getScoreColor(company.attractiveness_score) }">
+            <td
+              [ngStyle]="{
+                'background-color': getScoreColor(company.attractiveness_score)
+              }"
+            >
               {{ company.attractiveness_score }}
             </td>
-            <td class="sparkline-cell">
-                <app-sparkline color="#161D27" [data]="company.price_history" [dates]="company.price_dates" [height]="200"></app-sparkline>
-            </td>
+            <!-- <td class="sparkline-cell">
+              <app-sparkline
+                color="#161D27"
+                [data]="company.price_history"
+                [dates]="company.price_dates"
+                [height]="100"
+              ></app-sparkline>
+            </td> -->
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-    <div class="investment-warning">
+  <div class="investment-warning">
     ⚠️ <strong>Avertissement :</strong> Ceci ne constitue pas un conseil en
     investissement. Les informations fournies sont à titre éducatif et
     informatif uniquement.

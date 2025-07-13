@@ -17,6 +17,8 @@ export class WatchlistComponent {
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
   chartOptions: ChartConfiguration<'line'>['options'] | undefined;
+  activeTab: 'PEA' | 'CTO' = 'PEA';
+
 
   constructor(private route: ActivatedRoute, private router: Router) {
     const companies = this.route.snapshot.data['companies'];

@@ -1,14 +1,54 @@
-<h1>Realt</h1>
+<h1>
+  Mon Immobilier Realt
+  <img
+    class="realt-logo"
+    src="assets/images/realt/realt-logo-no-text.png"
+    alt="Realt Logo"
+  />
+</h1>
+
 <div *ngIf="!realt" class="no-data">
   <p>Aucune donnée disponible pour le moment.</p>
 </div>
-<div class="rents-graph-container" *ngIf="realt && chartOptions">
-  <app-sparkline
-    color="#161D27"
-    [data]="realt.rents"
-    [dates]="realt.dates"
-    [chartOptions]="chartOptions"
-    legend="Loyers hebdomadaire (en $)"
-    [height]="200"
-  ></app-sparkline>
+<div class="tab-buttons-container" *ngIf="realt">
+  <div class="tab-buttons">
+    <button
+      (click)="activeTab = 'portfolio'"
+      [class.active]="activeTab === 'portfolio'"
+    >
+      📊 Portfolio
+    </button>
+    <button
+      (click)="activeTab = 'rents'"
+      [class.active]="activeTab === 'rents'"
+    >
+      📈 Loyers
+    </button>
+  </div>
+</div>
+
+<div class="realt-main-container" *ngIf="realt">
+  <!-- Portfolio tab -->
+  <div class="portfolio-container" *ngIf="activeTab === 'portfolio'">
+    <img
+      class="portfolio-image"
+      src="assets/images/realt/realt-portfolio.png"
+      alt="Realt Portfolio"
+    />
+  </div>
+
+  <!-- Rents Graph tab -->
+  <div
+    class="rents-graph-container"
+    *ngIf="activeTab === 'rents' && chartOptions"
+  >
+    <app-sparkline
+      color="#161D27"
+      [data]="realt.rents"
+      [dates]="realt.dates"
+      [chartOptions]="chartOptions"
+      legend="Loyers hebdomadaire (en $)"
+      [height]="200"
+    ></app-sparkline>
+  </div>
 </div>

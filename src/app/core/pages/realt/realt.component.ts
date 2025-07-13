@@ -16,6 +16,7 @@ export class RealtComponent {
   realt: Realt | undefined;
   maxRent: number | undefined;
   chartOptions: ChartConfiguration<'line'>['options'] | undefined = undefined;
+  activeTab: 'portfolio' | 'rents' = 'portfolio';
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.realt = this.route.snapshot.data['realt'];

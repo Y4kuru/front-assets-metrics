@@ -1,17 +1,18 @@
 .watchlist-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
+  align-items: stretch;
   color: var(--tertiary-color);
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
 
   .watchlist-header {
-    margin-bottom: 2rem;
+    align-self: center;
 
     h1 {
       font-size: 4rem;
       color: var(--quinary-color);
-      margin: 0;
+      margin-bottom: 2rem;
     }
   }
 
@@ -28,20 +29,17 @@
     .table-wrapper {
       overflow-x: auto;
       width: 100%;
+      justify-items: center;
+
+      table {
+        table-layout: auto;
+      }
       table thead tr th span {
         font-weight: bold;
         color: var(--primary-color);
         float: inline-end;
       }
     }
-    
-    // tbody tr:nth-child(odd) {
-    //   background-color: var(--primary-color);
-    // }
-
-    // tbody tr:nth-child(even) {
-    //   background-color: var(--primary-color);
-    // }
 
     td app-sparkline {
       display: block;
@@ -59,23 +57,13 @@
 
     th,
     td {
-      padding: 0.75rem 1rem;
+      padding: 0.5rem 0.75rem;
       vertical-align: middle;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    td:last-child {
-      width: 150px;
-    }
-
     tr:hover {
       background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    td.sparkline-cell {
-      width: 150px;
-      padding: 4px 8px;
-      border-radius: 4px;
     }
   }
 }
@@ -132,31 +120,32 @@
   border-radius: 4px;
 }
 
-.watchlist-toggle {
+.tab-buttons {
   display: flex;
   justify-content: center;
-  margin: 1rem auto;
   gap: 1rem;
+  margin-bottom: 1.25rem;
 
   button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     padding: 0.6rem 1.2rem;
-    border: none;
-    border-radius: 8px;
     font-weight: bold;
     font-size: 2rem;
-    background-color: var(--quinary-color);;
-    color: var(--white-color);
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: #3d4450;
-      color: var(--primary-color);
+    transition: background-color 0.3s;
+    &:not(.active) {
+      &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
     }
+  }
 
-    &.active {
-      background-color: var(--secondary-color);
-      color: var(--primary-color);
-    }
+  button.active {
+    background-color: var(--primary-color);
+    color: white;
   }
 }
