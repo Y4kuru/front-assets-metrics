@@ -42,6 +42,7 @@
     class="rents-graph-container"
     *ngIf="activeTab === 'rents' && chartOptions"
   >
+    <h2>Total: <span class="">{{totalLoyer}}$</span></h2>
     <app-sparkline
       color="#161D27"
       [data]="realt.rents"

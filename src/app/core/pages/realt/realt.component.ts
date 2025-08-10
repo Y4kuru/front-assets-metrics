@@ -5,6 +5,7 @@ import { ChartConfiguration } from 'chart.js';
 interface Realt {
   dates: string[];
   rents: number[];
+  total_rent: number;
 }
 
 @Component({
@@ -14,12 +15,14 @@ interface Realt {
 })
 export class RealtComponent {
   realt: Realt | undefined;
+  totalLoyer: number | undefined;
   maxRent: number | undefined;
   chartOptions: ChartConfiguration<'line'>['options'] | undefined = undefined;
   activeTab: 'portfolio' | 'rents' = 'portfolio';
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.realt = this.route.snapshot.data['realt'];
+    this.totalLoyer = this.realt?.total_rent
     if (this.realt) {
       this.maxRent = Math.ceil(Math.max(...this.realt.rents));
       this.chartOptions = {
