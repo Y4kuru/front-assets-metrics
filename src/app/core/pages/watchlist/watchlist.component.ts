@@ -17,7 +17,7 @@ export class WatchlistComponent {
   sortColumn: string = '';
   sortDirection: 'asc' | 'desc' = 'asc';
   chartOptions: ChartConfiguration<'line'>['options'] | undefined;
-  activeTab: 'PEA' | 'CTO' = 'PEA';
+  activeTab: 'PEA' | 'CTO' = 'CTO';
 
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -25,7 +25,7 @@ export class WatchlistComponent {
     if (companies) {
       this.tableDataPEA = companies.pea;
       this.tableDataCTO = companies.cto;
-      this.currentTableData = this.tableDataPEA;
+      this.currentTableData = this.tableDataCTO;
       this.chartOptions = {
         responsive: true,
         maintainAspectRatio: false,
